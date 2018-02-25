@@ -33,5 +33,4 @@ public class StackUtils {
         int top = stack.getTop();
         return data[top];
     }
-
 }
