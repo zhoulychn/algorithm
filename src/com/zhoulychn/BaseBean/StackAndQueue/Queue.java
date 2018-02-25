@@ -1,10 +1,13 @@
 package com.zhoulychn.BaseBean.StackAndQueue;
 
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.Stack;
 
-public class Queue {
+@SuppressWarnings("unchecked")
+public class Queue<E> {
 
-    private int[] data;
+    private Object[] data;
 
     private int front;
 
@@ -14,37 +17,23 @@ public class Queue {
 
     public Queue(int capacity) {
         this.capacity = capacity;
-        data = new int[capacity];
+        data = new Object[capacity];
         front = 0;
         rear = 0;
-
     }
 
-    public int[] getData() {
-        return data;
+    public boolean isEmpty() {
+        return front == rear;
     }
 
-    public void setData(int[] data) {
-        this.data = data;
+    public boolean enQueue( E e) {
+        if ((rear + 1) % capacity == front) return false;
+        data[rear++] = e;
+        return true;
     }
 
-    public int getFront() {
-        return front;
-    }
 
-    public void setFront(int front) {
-        this.front = front;
-    }
-
-    public int getRear() {
-        return rear;
-    }
-
-    public void setRear(int rear) {
-        this.rear = rear;
-    }
-
-    public int getCapacity() {
-        return capacity;
+    public E deQueue() {
+        return (E) data[front++];
     }
 }

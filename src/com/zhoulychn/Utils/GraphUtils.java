@@ -59,12 +59,12 @@ public class GraphUtils {
     }
 
     public static void breadthFirstSearch(ALGraph graph, int v) {
-        Queue queue = new Queue(64);
-        QueueUtils.enQueue(queue, v);
+        Queue<Integer> queue = new Queue<Integer>(64);
+        queue.enQueue(v);
         System.out.println(v);
         mark[v] = true;
-        while (!QueueUtils.isEmpty(queue)) {
-            int vex = QueueUtils.deQueue(queue);
+        while (!queue.isEmpty()) {
+            int vex = queue.deQueue();
             VNode node = graph.getVertices()[vex];
             Arc arc = node.getFirst();
             while (arc != null) {
@@ -72,7 +72,7 @@ public class GraphUtils {
                 if (!mark[k]) {
                     mark[k] = true;
                     System.out.println(k);
-                    QueueUtils.enQueue(queue, k);
+                    queue.enQueue(k);
                 }
                 arc = arc.getNext();
             }

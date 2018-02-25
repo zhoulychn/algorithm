@@ -1,29 +1,35 @@
 package com.zhoulychn.BaseBean.StackAndQueue;
 
-public class SqStack {
+@SuppressWarnings("unchecked")
+public class SqStack<E> {
 
-    private int[] data;
+    private Object[] data;
 
     private int top;
 
-    public int[] getData() {
-        return data;
-    }
-
-    public void setData(int[] data) {
-        this.data = data;
-    }
-
-    public int getTop() {
-        return top;
-    }
-
-    public void setTop(int top) {
-        this.top = top;
-    }
-
     public SqStack(int capacity) {
-        data = new int[capacity];
+        data = new Object[capacity];
         top = -1;
+    }
+
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    public boolean push(E e) {
+        if (top == data.length - 1) {
+            return false;
+        }
+        data[++top] = e;
+        return true;
+    }
+
+
+    public E pop() {
+        return (E) data[top--];
+    }
+
+    public E getTop() {
+        return (E) data[top];
     }
 }
