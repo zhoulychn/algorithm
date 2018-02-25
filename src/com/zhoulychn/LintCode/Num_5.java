@@ -19,6 +19,7 @@ public class Num_5 {
         return partition(k, nums, low, high);
     }
 
+    //递归也可以实现，但是数据量大就会栈溢出
     private int partition(int k, int[] nums, int lo, int hi) {
 
         SqStack stack = new SqStack(1024);
@@ -26,10 +27,12 @@ public class Num_5 {
         StackUtils.push(stack, hi);
 
         StackUtils.push(stack, lo);
-        
+
         int pivot = 0;
 
         while (!StackUtils.isEmpty(stack)) {
+
+            //last 用于保存每次划分开始的上界
 
             int low = StackUtils.pop(stack), high = StackUtils.pop(stack),last = high;
 
@@ -43,6 +46,8 @@ public class Num_5 {
             }
 
             nums[low] = pivot;
+
+            //比较枢轴后半部的元素数量，大于查找元素的排名，对后半部划分，小于查找元素的排名，重置K(减去后半部数量)然后对前半部划分。
 
             if (last - low + 1 > k) {
                 StackUtils.push(stack, last);
