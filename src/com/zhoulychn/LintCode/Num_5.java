@@ -4,6 +4,7 @@ package com.zhoulychn.LintCode;
 
 import com.zhoulychn.BaseBean.StackAndQueue.SqStack;
 import com.zhoulychn.Utils.StackUtils;
+import org.junit.Test;
 
 public class Num_5 {
 
@@ -34,7 +35,7 @@ public class Num_5 {
 
             //last 用于保存每次划分开始的上界
 
-            int low = StackUtils.pop(stack), high = StackUtils.pop(stack),last = high;
+            int low = StackUtils.pop(stack), high = StackUtils.pop(stack), last = high;
 
             pivot = nums[low];
 
@@ -63,5 +64,13 @@ public class Num_5 {
             break;
         }
         return pivot;
+    }
+
+    @Test
+    public void run() {
+        int[] nums = {1, 2, 3, 4, 5, 6, 8, 9, 10, 7};
+        int k = 10;
+        int i = kthLargestElement(k, nums);
+        System.out.println(i);
     }
 }
