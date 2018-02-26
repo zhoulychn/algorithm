@@ -2,12 +2,10 @@ package com.zhoulychn.BaseBean.Tree;
 
 public class TreeNode {
 
-    public int val;
-    
-    public TreeNode left, right;
+    public Integer value;
 
-    public TreeNode(int val) {
-        this.val = val;
-        this.left = this.right = null;
-    }
+    public TreeNode left;
+
+    public TreeNode right;
+
 }

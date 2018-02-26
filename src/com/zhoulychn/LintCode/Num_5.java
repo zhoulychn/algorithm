@@ -3,7 +3,6 @@ package com.zhoulychn.LintCode;
 //在数组中找到第k大的元素
 
 import com.zhoulychn.BaseBean.StackAndQueue.SqStack;
-import com.zhoulychn.Utils.StackUtils;
 import org.junit.Test;
 
 public class Num_5 {

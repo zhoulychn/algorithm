@@ -38,7 +38,7 @@ public class Num_7 {
             }
         }
         for (int i = 0; i < start; i++) {
-            result.append(queue[i] == null ? "#" : queue[i].val);
+            result.append(queue[i] == null ? "#" : queue[i].value);
         }
         return result.toString();
     }

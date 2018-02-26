@@ -1,8 +1,6 @@
 package com.zhoulychn.Utils;
 
-
-import com.zhoulychn.BaseBean.Tree.BiTree;
-
+import com.zhoulychn.BaseBean.Tree.TreeNode;
 import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
@@ -10,47 +8,47 @@ import java.util.Scanner;
 
 public class BiTreeUtils {
 
-    public static void preOrder(BiTree tree) {
+    public static void preOrder(TreeNode tree) {
         if (tree != null) {
             visit(tree);
-            preOrder(tree.getLeft());
-            preOrder(tree.getRight());
+            preOrder(tree.left);
+            preOrder(tree.right);
         }
     }
 
-    public static void inOrder(BiTree tree) {
+    public static void inOrder(TreeNode tree) {
         if (tree != null) {
-            inOrder(tree.getLeft());
+            inOrder(tree.left);
             visit(tree);
-            inOrder(tree.getRight());
+            inOrder(tree.right);
         }
     }
 
-    public static void postOrder(BiTree tree) {
+    public static void postOrder(TreeNode tree) {
         if (tree != null) {
-            postOrder(tree.getLeft());
-            postOrder(tree.getRight());
+            postOrder(tree.left);
+            postOrder(tree.right);
             visit(tree);
         }
     }
 
-    public static void visit(BiTree tree) {
-        System.out.println(tree.getValue());
+    public static void visit(TreeNode tree) {
+        System.out.println(tree.value);
     }
 
-    public static BiTree createByScan(BiTree tree) {
+    public static TreeNode createByScan(TreeNode tree) {
         Scanner input = new Scanner(System.in);
         int i = input.nextInt();
         if (0 == i) return null;
-        tree.setValue(i);
-        tree.setLeft(new BiTree());
-        tree.setRight(new BiTree());
-        tree.setLeft(createByScan(tree.getLeft()));
-        tree.setRight(createByScan(tree.getRight()));
+        tree.value = i;
+        tree.left = new TreeNode();
+        tree.right = new TreeNode();
+        tree.left = createByScan(tree.left);
+        tree.right = createByScan(tree.right);
         return tree;
     }
 
-    public static BiTree createByFile(BiTree tree, String path) throws Exception {
+    public static TreeNode createByFile(TreeNode tree, String path) throws Exception {
         File file = new File(path);
         Reader reader = new FileReader(file);
         char[] buf = new char[2014];
