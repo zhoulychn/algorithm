@@ -33,14 +33,14 @@ public class BiTreeUtils {
     }
 
     public static void visit(TreeNode tree) {
-        System.out.println(tree.value);
+        System.out.println(tree.val);
     }
 
     public static TreeNode createByScan(TreeNode tree) {
         Scanner input = new Scanner(System.in);
         int i = input.nextInt();
         if (0 == i) return null;
-        tree.value = i;
+        tree.val = i;
         tree.left = new TreeNode();
         tree.right = new TreeNode();
         tree.left = createByScan(tree.left);
