@@ -20,12 +20,14 @@ public class Num_452 {
 
         ListNode result = new ListNode(head.val);
 
+        ListNode p = result;
+
         head = head.next;
 
         while (head != null) {
             if (head.val != val) {
-                result.next = new ListNode(head.val);
-                result = result.next;
+                p.next = new ListNode(head.val);
+                p = p.next;
             }
             head = head.next;
         }
@@ -35,8 +37,19 @@ public class Num_452 {
 
     @Test
     public void run() {
-        ListNode p = new ListNode(1);
-        p.append(2).append(6).append(3).append(4).append(5).append(6);
-        removeElements(p, 6);
+        ListNode head = new ListNode(1);
+        ListNode p = head;
+        p.next = new ListNode(2);
+        p = p.next;
+        p.next = new ListNode(6);
+        p = p.next;
+        p.next = new ListNode(3);
+        p = p.next;
+        p.next = new ListNode(4);
+        p = p.next;
+        p.next = new ListNode(5);
+        p = p.next;
+        p = new ListNode(6);
+        removeElements(head, 6);
     }
 }

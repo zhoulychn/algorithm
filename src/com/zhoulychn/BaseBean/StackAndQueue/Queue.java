@@ -14,7 +14,11 @@ public class Queue<E> {
 
     private int rear;
 
-    private final int capacity;
+    private int capacity;
+
+    public Queue() {
+        this(16);
+    }
 
     public Queue(int capacity) {
         this.capacity = capacity;
@@ -27,14 +31,20 @@ public class Queue<E> {
         return front == rear;
     }
 
-    public boolean enQueue( E e) {
+    public boolean isNotEmpty() {
+        return front != rear;
+    }
+
+    public boolean enQueue(E e) {
         if ((rear + 1) % capacity == front) return false;
-        data[rear++] = e;
+        data[rear] = e;
+        rear = (rear + 1) % capacity;
         return true;
     }
 
-
     public E deQueue() {
-        return (E) data[front++];
+        E result = (E) data[front];
+        front = (front + 1) % capacity;
+        return result;
     }
 }
