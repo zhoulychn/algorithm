@@ -1,12 +1,7 @@
 package com.zhoulychn.BaseBean.StackAndQueue;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.Stack;
-
 @SuppressWarnings("unchecked")
-public class Queue<E> {
+public class SqQueue<E> {
 
     private Object[] data;
 
@@ -16,11 +11,11 @@ public class Queue<E> {
 
     private int capacity;
 
-    public Queue() {
+    public SqQueue() {
         this(16);
     }
 
-    public Queue(int capacity) {
+    public SqQueue(int capacity) {
         this.capacity = capacity;
         data = new Object[capacity];
         front = 0;
@@ -46,5 +41,13 @@ public class Queue<E> {
         E result = (E) data[front];
         front = (front + 1) % capacity;
         return result;
+    }
+
+    public E getLast() {
+        return (E) data[front];
+    }
+
+    public int size() {
+        return (rear - front + capacity) % capacity;
     }
 }

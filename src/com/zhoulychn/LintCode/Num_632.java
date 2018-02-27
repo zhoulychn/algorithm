@@ -1,6 +1,6 @@
 package com.zhoulychn.LintCode;
 
-import com.zhoulychn.BaseBean.StackAndQueue.Queue;
+import com.zhoulychn.BaseBean.StackAndQueue.SqQueue;
 import com.zhoulychn.BaseBean.Tree.TreeNode;
 
 public class Num_632 {
@@ -11,7 +11,7 @@ public class Num_632 {
      */
     public TreeNode maxNode(TreeNode root) {
         if (root == null) return null;
-        Queue<TreeNode> queue = new Queue<TreeNode>();
+        SqQueue<TreeNode> queue = new SqQueue<TreeNode>();
         queue.enQueue(root);
         TreeNode result = root;
         while (queue.isNotEmpty()) {

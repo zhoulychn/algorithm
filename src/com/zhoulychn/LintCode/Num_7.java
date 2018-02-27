@@ -1,7 +1,12 @@
 package com.zhoulychn.LintCode;
 
+import com.zhoulychn.BaseBean.StackAndQueue.SqQueue;
 import com.zhoulychn.BaseBean.Tree.TreeNode;
+import com.zhoulychn.Utils.TreeUtils;
 import org.junit.Test;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Num_7 {
 
@@ -10,37 +15,39 @@ public class Num_7 {
      * to serialize a binary tree which denote by a root node to a string which
      * can be easily deserialized by your own "deserialize" method later.
      */
-    public String serialize(TreeNode root) {
+    public static String serialize(TreeNode root) {
+        if (root == null) return "{}";
         StringBuilder result = new StringBuilder();
-        TreeNode[] queue = new TreeNode[1024];
-        int rear = 0, front = 0;
-        queue[rear++] = root;
-        int start = 0, last = 0;
-        boolean flag = true;
-        while (true) {
-            TreeNode node = queue[front++];
-            if (node == null)
-                continue;
-            if (node.left != null || node.right != null) {
-                flag = true;
+        result.append("{" + root.val + ',');
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            boolean flag = false;
+            int size = queue.size();
+            TreeNode[] list = new TreeNode[size];
+            for (int i = 0; i < size; i++) {
+                list[i] = queue.poll();
+                if (list[i].left != null || list[i].right != null) flag = true;
             }
-            queue[rear++] = root.left;
-            queue[rear++] = root.right;
-
-            if (front == last) {
-                start = front;
-                last = rear - 1;
-                if (flag) {
-                    flag = false;
-                } else {
-                    break;
+            if (flag) {
+                for (int i = 0; i < list.length; i++) {
+                    TreeNode node = list[i];
+                    if (node.left != null) {
+                        result.append(node.left.val + ",");
+                        queue.offer(node.left);
+                    } else {
+                        result.append("#,");
+                    }
+                    if (node.right != null) {
+                        result.append(node.right.val + ",");
+                        queue.offer(node.right);
+                    } else {
+                        result.append("#,");
+                    }
                 }
             }
         }
-        for (int i = 0; i < start; i++) {
-            result.append(queue[i] == null ? "#" : queue[i].val);
-        }
-        return result.toString();
+        return result.deleteCharAt(result.length() - 1).append("}").toString();
     }
 
     /**
@@ -51,11 +58,32 @@ public class Num_7 {
      * "serialize" method.
      */
     public TreeNode deserialize(String data) {
-        return null;
+        if (data.equals("#")) {
+            return null;
+        }
+        String[] tree = data.split(",");
+        Queue<String> queue = new LinkedList<>();
+        for (String node : tree) {
+            queue.offer(node);
+        }
+        int rootval = Integer.parseInt(queue.poll());
+        TreeNode root = new TreeNode(rootval);
+        Queue<TreeNode> resultQueue = new LinkedList<>();
+        resultQueue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode currNode = resultQueue.poll();
+            String left = queue.poll();
+            if (!left.equals("#")) {
+                currNode.left = new TreeNode(Integer.parseInt(left));
+                resultQueue.offer(currNode.left);
+            }
+            String right = queue.poll();
+            if (!right.equals("#")) {
+                currNode.right = new TreeNode(Integer.parseInt(right));
+                resultQueue.offer(currNode.right);
+            }
+        }
+        return root;
     }
 
-    @Test
-    public void run() {
-
-    }
 }

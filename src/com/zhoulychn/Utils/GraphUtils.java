@@ -3,7 +3,7 @@ package com.zhoulychn.Utils;
 import com.zhoulychn.BaseBean.Graph.ALGraph;
 import com.zhoulychn.BaseBean.Graph.Arc;
 import com.zhoulychn.BaseBean.Graph.VNode;
-import com.zhoulychn.BaseBean.StackAndQueue.Queue;
+import com.zhoulychn.BaseBean.StackAndQueue.SqQueue;
 
 
 public class GraphUtils {
@@ -59,7 +59,7 @@ public class GraphUtils {
     }
 
     public static void breadthFirstSearch(ALGraph graph, int v) {
-        Queue<Integer> queue = new Queue<Integer>(64);
+        SqQueue<Integer> queue = new SqQueue<Integer>(64);
         queue.enQueue(v);
         System.out.println(v);
         mark[v] = true;

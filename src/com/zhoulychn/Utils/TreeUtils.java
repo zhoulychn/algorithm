@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.Reader;
 import java.util.Scanner;
 
-public class BiTreeUtils {
+public class TreeUtils {
 
     public static void preOrder(TreeNode tree) {
         if (tree != null) {
