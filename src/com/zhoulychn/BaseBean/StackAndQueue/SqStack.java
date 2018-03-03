@@ -7,6 +7,10 @@ public class SqStack<E> {
 
     private int top;
 
+    public SqStack() {
+        this(16);
+    }
+
     public SqStack(int capacity) {
         data = new Object[capacity];
         top = -1;
@@ -14,6 +18,10 @@ public class SqStack<E> {
 
     public boolean isEmpty() {
         return top == -1;
+    }
+
+    public boolean isNotEmpty() {
+        return top == 1;
     }
 
     public boolean push(E e) {
