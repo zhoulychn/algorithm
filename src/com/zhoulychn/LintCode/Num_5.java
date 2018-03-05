@@ -29,14 +29,8 @@ public class Num_5 {
         }
     }
 
-    /**
-     * 快速排序划分操作
-     *
-     * @param nums 数组
-     * @param high 尾部
-     * @param low  首部
-     * @return 枢轴位置
-     */
+
+    // 快速排序划分操作
     private int partition(int[] nums, int high, int low) {
         int pivot = nums[low];
         while (low < high) {
@@ -48,7 +42,6 @@ public class Num_5 {
         nums[low] = pivot;
         return low;
     }
-
 
     @Test
     public void run() {
