@@ -1,6 +1,9 @@
 package com.zhoulychn.LintCode;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Lewis on 2018/3/3
@@ -9,24 +12,22 @@ import java.util.ArrayList;
  */
 public class Num_41 {
 
-    public int maxSubArray(int[] nums) {
-        return 0;
-    }
-
-    private int search(int[] arr, int low, int mid, int high) {
-        int leftSum = Integer.MIN_VALUE;
-        int sum = 0;
-        for (int i = mid; i >= low; i--) {
-            sum += arr[i];
-            if (sum > leftSum) {
-                leftSum = sum;
+    private int maxSubArray(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int result = nums[0], sum = nums[0] < 0 ? nums[0] : 0;
+        for (int num : nums) {
+            if (num < 0){
+                result = Math.max(result, sum);
             }
+            sum = Math.max(num, sum + num);
         }
-        return 0;
+        return Math.max(result, sum);
     }
 
-    private int max(int a, int b, int c) {
-        int temp = a > b ? a : b;
-        return temp > c ? temp : c;
+    @Test
+    public void run() {
+        int[] nums = {-2, 2, -3, 4, -1, 2, 1, -5, 3};
+
+        System.out.println(maxSubArray(nums));
     }
 }
