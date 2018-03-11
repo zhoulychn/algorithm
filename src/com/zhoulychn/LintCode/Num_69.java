@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class Num_69 {
 
+
     public List<List<Integer>> levelOrder(TreeNode root) {
         ArrayDeque<TreeNode> deque = new ArrayDeque<>();
         List<List<Integer>> result = new ArrayList<>();
