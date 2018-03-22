@@ -1,5 +1,7 @@
 package com.zhoulychn.LintCode;
 
+import java.util.HashSet;
+
 /**
  * Created by Lewis on 2018/3/19
  */
