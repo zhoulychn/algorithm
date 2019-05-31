@@ -11,11 +11,16 @@ public class ListNode {
     }
 
     public ListNode append(int x) {
-        ListNode temp = next;
-        while (temp != null) {
+        ListNode temp = this;
+        while (temp.next != null) {
             temp = temp.next;
         }
-        temp = new ListNode(x);
+        temp.next = new ListNode(x);
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return val + "," + (next == null ? "null" : next);
     }
 }
