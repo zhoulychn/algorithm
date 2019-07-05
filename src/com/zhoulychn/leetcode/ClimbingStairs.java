@@ -27,12 +27,12 @@ package com.zhoulychn.leetcode;
 public class ClimbingStairs {
 
     // 递归求解，n层台阶等于上一步或两步的解法和。容易栈溢出或超时。
-    public static int climbStairs(int n) {
+    private int climbStairs(int n) {
         return (n == 1 || n == 2) ? n : climbStairs(n - 1) + climbStairs(n - 2);
     }
 
     //动态规划，用数组保存前面的结果
-    public static int climbStairs2(int n) {
+    private int climbStairs2(int n) {
         if (n <= 1) return 1;   //边界处理
         int[] arr = new int[n + 1];
         arr[1] = 1;
@@ -45,7 +45,7 @@ public class ClimbingStairs {
 
 
     public static void main(String[] args) {
-        System.out.println(climbStairs2(10));
+        System.out.println(new ClimbingStairs().climbStairs2(10));
     }
 
 
