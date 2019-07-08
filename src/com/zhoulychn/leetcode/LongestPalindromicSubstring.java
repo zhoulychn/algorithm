@@ -15,38 +15,26 @@ package com.zhoulychn.leetcode;
 输出: "bb"
 
  */
+
+@SuppressWarnings("all")
 public class LongestPalindromicSubstring {
 
+    public String res = "";
+
     public String longestPalindrome(String s) {
-        int x = 0, y = 0;
-        for (int k = 0; k < s.length(); k++) {
-            int i = k, j = k;
-            while (isPalindrome(s, i, j)) {
-                i--;
-                j++;
-            }
-            i++;
-            j--;
-            if (j - i >= y - x) {
-                y = j;
+        if (s.length() <= 1) return s;
+        for (int i = 0; i < s.length() - 1; i++) {
+            int x = i, y = i;
+            while (isPalindrome(s, --x, ++y)) ;
+            res = --y - ++x + 1 > res.length() ? s.substring(x, y + 1) : res;
+            if (s.charAt(i) == s.charAt(i + 1)) {
                 x = i;
-            }
-            if (k + 1 < s.length() && s.charAt(k) == s.charAt(k + 1)) {
-                i = k;
-                j = k + 1;
-                while (isPalindrome(s, i, j)) {
-                    i--;
-                    j++;
-                }
-                i++;
-                j--;
-                if (j - i >= y - x) {
-                    y = j;
-                    x = i;
-                }
+                y = i + 1;
+                while (isPalindrome(s, --x, ++y)) ;
+                res = --y - ++x + 1 > res.length() ? s.substring(x, y + 1) : res;
             }
         }
-        return s.substring(x, y);
+        return res;
     }
 
     public boolean isPalindrome(String s, int i, int j) {
@@ -56,6 +44,6 @@ public class LongestPalindromicSubstring {
     }
 
     public static void main(String[] args) {
-        System.out.println(new LongestPalindromicSubstring().longestPalindrome("babad"));
+        System.out.println(new LongestPalindromicSubstring().longestPalindrome("aaabaaaa"));
     }
 }
