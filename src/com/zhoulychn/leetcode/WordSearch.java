@@ -58,15 +58,23 @@ public class WordSearch {
             visited[i][j] = 1;
 
             if (++pos == word.length()) return true;
+
+            //右边
             if (i + 1 < row && visited[i + 1][j] == 0) {
                 flag = search(i + 1, j, pos, word, board, visited);
             }
+
+            //左边
             if (i - 1 >= 0 && visited[i - 1][j] == 0) {
                 flag = flag || search(i - 1, j, pos, word, board, visited);
             }
+
+            //下边
             if (j + 1 < col && visited[i][j + 1] == 0) {
                 flag = flag || search(i, j + 1, pos, word, board, visited);
             }
+
+            //上边
             if (j - 1 >= 0 && visited[i][j - 1] == 0) {
                 flag = flag || search(i, j - 1, pos, word, board, visited);
             }

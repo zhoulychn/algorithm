@@ -43,10 +43,8 @@ public class ClimbingStairs {
         return arr[n];
     }
 
-
     public static void main(String[] args) {
         System.out.println(new ClimbingStairs().climbStairs2(10));
     }
-
 
 }

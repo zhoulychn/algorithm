@@ -19,11 +19,11 @@ package com.zhoulychn.leetcode;
 @SuppressWarnings("all")
 public class LongestPalindromicSubstring {
 
-    public String res = "";
 
     // 中心扩散法，从i 开始，以i为中心左右查找，如果i+1 =i，以这个对开始查找
     public String longestPalindrome(String s) {
         if (s.length() <= 1) return s;
+        String res = s.substring(0, 1);
         for (int i = 0; i < s.length() - 1; i++) {
 
             //单点为中心查找
