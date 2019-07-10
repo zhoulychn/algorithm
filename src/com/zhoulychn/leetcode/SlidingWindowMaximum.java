@@ -26,11 +26,14 @@ import java.util.stream.IntStream;
 注意：
 
 你可以假设 k 总是有效的，1 ≤ k ≤ 输入数组的大小，且输入数组不为空。
+
  */
 
-//@SuppressWarnings("all")
+@SuppressWarnings("all")
 public class SlidingWindowMaximum {
 
+
+    //每次滑动，一插入，一删除，插入被滑入的数，清除之前所有比这个数小的数，删除被滑过的数
     public int[] maxSlidingWindow(int[] nums, int k) {
 
         // 长度为0
