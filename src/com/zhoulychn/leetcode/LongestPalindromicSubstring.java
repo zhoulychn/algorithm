@@ -26,12 +26,12 @@ public class LongestPalindromicSubstring {
         String res = s.substring(0, 1);
         for (int i = 0; i < s.length() - 1; i++) {
 
-            //单点为中心查找
+            // 单点为中心查找
             int x = i, y = i;
             while (isPalindrome(s, --x, ++y)) ;
             res = --y - ++x + 1 > res.length() ? s.substring(x, y + 1) : res;
 
-            //成对查找
+            // 成对查找
             if (s.charAt(i) == s.charAt(i + 1)) {
                 x = i;
                 y = i + 1;
@@ -42,14 +42,14 @@ public class LongestPalindromicSubstring {
         return res;
     }
 
-    //判断回文串方法
+    // 判断回文串方法
     public boolean isPalindrome(String s, int i, int j) {
         if (i == j) return true;
         if (i < 0 || j >= s.length()) return false;
         return s.charAt(i) == s.charAt(j);
     }
 
-    //动态规划
+    // 动态规划
     public String dp(String s) {
         if (s.length() <= 1) return s;
 
@@ -58,11 +58,11 @@ public class LongestPalindromicSubstring {
         boolean[][] dp = new boolean[s.length()][s.length()];
 
 
-        //区间慢慢扩大的遍历，防止需要dp[l + 1][r - 1]做判断时，这个数据并没有初始化
+        // 区间慢慢扩大的遍历，防止需要dp[l + 1][r - 1]做判断时，这个数据并没有初始化
         for (int r = 1; r < s.length(); r++) {
             for (int l = 0; l < r; l++) {
 
-                //r - l = 1或2时，中间只有一个元素或者无元素就不用判断了，左右相等就是回文串
+                // r - l = 1或2时，中间只有一个元素或者无元素就不用判断了，左右相等就是回文串
                 if (s.charAt(l) == s.charAt(r) && (r - l <= 2 || dp[l + 1][r - 1])) {
                     dp[l][r] = true;
                     result = r - l + 1 > result.length() ? s.substring(l, r + 1) : result;

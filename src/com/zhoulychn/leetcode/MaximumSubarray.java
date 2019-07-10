@@ -14,24 +14,24 @@ public class MaximumSubarray {
 
     public int maxSubArray(int[] nums) {
 
-        //特殊情况
+        // 特殊情况
         if (nums.length < 2) return nums.length == 1 ? nums[0] : 0;
 
-        //result是结果，sum是缓存局部的和
+        // result是结果，sum是缓存局部的和
         int result = nums[0], sum = nums[0] > 0 ? 0 : nums[0];
 
         for (int num : nums) {
 
-            //当出现负数时，sum会有变小的趋势，所以此时sum是局部最大的，先把结果放到result
+            // 当出现负数时，sum会有变小的趋势，所以此时sum是局部最大的，先把结果放到result
             if (num < 0) {
                 result = Math.max(result, sum);
             }
 
-            //局部和，取 当前数 或 加上之前 更大值。
+            // 局部和，取 当前数 或 加上之前 更大值。
             sum = Math.max(num, sum + num);
         }
 
-        //当sum一直变大到最后时，result可能没取过sum的值，所以要判断
+        // 当sum一直变大到最后时，result可能没取过sum的值，所以要判断
         return Math.max(result, sum);
     }
 }

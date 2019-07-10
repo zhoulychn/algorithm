@@ -37,19 +37,19 @@ public class PathSumIII {
 
         if (root == null) return 0;
 
-        //搜索以当前节点为根节点的路径+左子树+右子树
+        // 搜索以当前节点为根节点的路径+左子树+右子树
         return search(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
     }
 
     public int search(TreeNode root, int sum) {
 
-        //路径结束没找到返回0
+        // 路径结束没找到返回0
         if (root == null) return 0;
 
-        //当前路径可能已经符合，但是不保证向下找还可以符合，所以结果要+1
+        // 当前路径可能已经符合，但是不保证向下找还可以符合，所以结果要+1
         sum -= root.val;
 
-        //当前是否完成+左子树查找+右子树查找
+        // 当前是否完成+左子树查找+右子树查找
         return (sum == 0 ? 1 : 0) + search(root.left, sum) + search(root.right, sum);
     }
 

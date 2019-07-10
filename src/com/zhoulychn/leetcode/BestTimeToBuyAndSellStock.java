@@ -23,17 +23,17 @@ package com.zhoulychn.leetcode;
 public class BestTimeToBuyAndSellStock {
 
 
-    //每确定一个最低点，然后向上爬，找到这个最低点的最大利益，有更低点就改为这个更低点
+    // 每确定一个最低点，然后向上爬，找到这个最低点的最大利益，有更低点就改为这个更低点
     public int maxProfit(int[] prices) {
 
-        //记录收益和最小价格
+        // 记录收益和最小价格
         int profit = 0, min = Integer.MAX_VALUE;
 
         for (int price : prices) {
-            //重置最小价格
+            // 重置最小价格
             if (price < min) min = price;
 
-            //如果最小价格没有变化，说明收益可能增加，判断一下
+            // 如果最小价格没有变化，说明收益可能增加，判断一下
             else if (price - min > profit) profit = price - min;
         }
         return profit;
