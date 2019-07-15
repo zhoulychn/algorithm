@@ -33,7 +33,7 @@ public class Tools {
     }
 
     public static void main(String[] args) {
-        String s = nameSwitch("lowest-common-ancestor-of-a-binary-search-tree");
+        String s = nameSwitch("power-of-two");
         System.out.println(s);
     }
 }
