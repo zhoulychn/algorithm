@@ -1,7 +1,7 @@
 package com.zhoulychn.leetcode;
 
 
-import com.zhoulychn.BaseBean.List.ListNode;
+import com.zhoulychn.baseBean.List.ListNode;
 
 
 /**

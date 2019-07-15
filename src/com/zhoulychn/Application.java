@@ -1,15 +1,6 @@
 package com.zhoulychn;
 
 
-import com.zhoulychn.BaseBean.Tree.TreeNode;
-import com.zhoulychn.LintCode.Num_7;
-import com.zhoulychn.Utils.TreeUtils;
-
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-
 public class Application {
 
     public enum Calc {

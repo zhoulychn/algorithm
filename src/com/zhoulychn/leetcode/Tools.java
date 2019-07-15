@@ -33,7 +33,7 @@ public class Tools {
     }
 
     public static void main(String[] args) {
-        String s = nameSwitch("power-of-two");
+        String s = nameSwitch("kth-largest-element-in-an-array");
         System.out.println(s);
     }
 }
