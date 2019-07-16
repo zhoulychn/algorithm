@@ -1,9 +1,9 @@
 package com.zhoulychn.leetcode;
 
 
-import java.util.ArrayDeque;
+import com.zhoulychn.utils.Tools;
+
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.List;
 
 /*

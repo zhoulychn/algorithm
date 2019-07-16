@@ -1,8 +1,7 @@
 package com.zhoulychn.leetcode;
 
 
-import java.util.ArrayDeque;
-import java.util.Queue;
+import com.zhoulychn.utils.Tools;
 
 /*
 给定一个二叉树，它的每个结点都存放着一个整数值。

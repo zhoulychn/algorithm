@@ -1,4 +1,6 @@
-package com.zhoulychn.leetcode;
+package com.zhoulychn.utils;
+
+import com.zhoulychn.leetcode.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +35,7 @@ public class Tools {
     }
 
     public static void main(String[] args) {
-        String s = nameSwitch("lru-cache");
+        String s = nameSwitch("remove-duplicates-from-sorted-array");
         System.out.println(s);
     }
 }
