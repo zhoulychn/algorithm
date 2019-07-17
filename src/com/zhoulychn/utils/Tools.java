@@ -35,7 +35,7 @@ public class Tools {
     }
 
     public static void main(String[] args) {
-        String s = nameSwitch("maximum-depth-of-binary-tree");
+        String s = nameSwitch("best-time-to-buy-and-sell-stock-ii");
         System.out.println(s);
     }
 }
