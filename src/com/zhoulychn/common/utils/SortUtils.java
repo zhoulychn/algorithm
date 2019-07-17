@@ -1,4 +1,4 @@
-package com.zhoulychn.utils;
+package com.zhoulychn.common.utils;
 
 public class SortUtils {
 

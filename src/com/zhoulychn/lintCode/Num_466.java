@@ -1,7 +1,7 @@
 package com.zhoulychn.lintCode;
 
 
-import com.zhoulychn.baseBean.List.ListNode;
+import com.zhoulychn.common.list.ListNode;
 
 //计算链表中有多少个节点.
 

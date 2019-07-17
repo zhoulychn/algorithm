@@ -1,6 +1,6 @@
 package com.zhoulychn.lintCode;
 
-import com.zhoulychn.baseBean.Tree.TreeNode;
+import com.zhoulychn.common.tree.TreeNode;
 
 import java.util.*;
 
@@ -11,7 +11,7 @@ import java.util.*;
 public class Num_66 {
 
     /*
-     * @param root: A Tree
+     * @param root: A tree
      * @return: Inorder in ArrayList which contains node values.
      */
     public List<Integer> inorderTraversal(TreeNode root) {

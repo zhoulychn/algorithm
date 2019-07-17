@@ -1,9 +1,9 @@
-package com.zhoulychn.utils;
+package com.zhoulychn.common.utils;
 
-import com.zhoulychn.baseBean.Graph.ALGraph;
-import com.zhoulychn.baseBean.Graph.Arc;
-import com.zhoulychn.baseBean.Graph.VNode;
-import com.zhoulychn.baseBean.StackAndQueue.SqQueue;
+import com.zhoulychn.common.graph.ALGraph;
+import com.zhoulychn.common.graph.Arc;
+import com.zhoulychn.common.graph.VNode;
+import com.zhoulychn.common.stack.SqQueue;
 
 
 public class GraphUtils {

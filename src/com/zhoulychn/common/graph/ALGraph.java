@@ -1,4 +1,4 @@
-package com.zhoulychn.baseBean.Graph;
+package com.zhoulychn.common.graph;
 
 public class ALGraph {
 

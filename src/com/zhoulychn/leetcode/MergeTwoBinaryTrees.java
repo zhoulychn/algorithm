@@ -1,6 +1,6 @@
 package com.zhoulychn.leetcode;
 
-import com.zhoulychn.utils.Tools;
+import com.zhoulychn.common.utils.Tools;
 
 /*
 给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。
@@ -10,7 +10,7 @@ import com.zhoulychn.utils.Tools;
 示例 1:
 
 输入:
-	Tree 1                     Tree 2
+	tree 1                     tree 2
           1                         2
          / \                       / \
         3   2                     1   3

@@ -1,6 +1,6 @@
 package com.zhoulychn.lintCode;
 
-import com.zhoulychn.baseBean.List.ListNode;
+import com.zhoulychn.common.list.ListNode;
 import org.junit.Test;
 
 public class Num_452 {

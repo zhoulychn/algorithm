@@ -1,4 +1,4 @@
-package com.zhoulychn.baseBean.StackAndQueue;
+package com.zhoulychn.common.stack;
 
 @SuppressWarnings("unchecked")
 public class SqStack<E> {

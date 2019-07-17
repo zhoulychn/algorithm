@@ -1,4 +1,4 @@
-package com.zhoulychn.utils;
+package com.zhoulychn.common.utils;
 
 import com.zhoulychn.leetcode.TreeNode;
 
@@ -35,7 +35,7 @@ public class Tools {
     }
 
     public static void main(String[] args) {
-        String s = nameSwitch("best-time-to-buy-and-sell-stock-ii");
+        String s = nameSwitch("delete-node-in-a-linked-list");
         System.out.println(s);
     }
 }

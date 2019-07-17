@@ -1,6 +1,6 @@
 package com.zhoulychn.lintCode;
 
-import com.zhoulychn.utils.SortUtils;
+import com.zhoulychn.common.utils.SortUtils;
 
 public class Num_463 {
 

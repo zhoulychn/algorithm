@@ -1,6 +1,6 @@
 package com.zhoulychn.lintCode;
 
-import com.zhoulychn.baseBean.Tree.TreeNode;
+import com.zhoulychn.common.tree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

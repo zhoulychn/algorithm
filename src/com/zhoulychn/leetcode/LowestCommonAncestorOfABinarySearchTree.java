@@ -1,7 +1,7 @@
 package com.zhoulychn.leetcode;
 
 
-import com.zhoulychn.utils.Tools;
+import com.zhoulychn.common.utils.Tools;
 
 import java.util.ArrayList;
 import java.util.List;

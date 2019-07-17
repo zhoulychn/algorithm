@@ -1,4 +1,4 @@
-package com.zhoulychn.baseBean.Tree;
+package com.zhoulychn.common.tree;
 
 public class BsTree<Key extends Comparable<Key>, Value> {
 

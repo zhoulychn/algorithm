@@ -1,7 +1,7 @@
 package com.zhoulychn.lintCode;
 
-import com.zhoulychn.baseBean.Tree.TreeNode;
-import com.zhoulychn.utils.TreeUtils;
+import com.zhoulychn.common.tree.TreeNode;
+import com.zhoulychn.common.utils.TreeUtils;
 
 /**
  * Created by Lewis on 2018/3/10

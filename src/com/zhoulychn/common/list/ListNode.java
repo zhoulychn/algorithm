@@ -1,4 +1,4 @@
-package com.zhoulychn.baseBean.List;
+package com.zhoulychn.common.list;
 
 public class ListNode {
 

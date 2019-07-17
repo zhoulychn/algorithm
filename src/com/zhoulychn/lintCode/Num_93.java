@@ -1,6 +1,6 @@
 package com.zhoulychn.lintCode;
 
-import com.zhoulychn.baseBean.Tree.TreeNode;
+import com.zhoulychn.common.tree.TreeNode;
 
 /**
  * Created by Lewis on 2018/3/3

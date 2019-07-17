@@ -1,7 +1,7 @@
 package com.zhoulychn.lintCode;
 
-import com.zhoulychn.baseBean.StackAndQueue.SqQueue;
-import com.zhoulychn.baseBean.Tree.TreeNode;
+import com.zhoulychn.common.stack.SqQueue;
+import com.zhoulychn.common.tree.TreeNode;
 
 public class Num_632 {
 
