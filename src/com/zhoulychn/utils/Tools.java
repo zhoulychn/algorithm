@@ -35,7 +35,7 @@ public class Tools {
     }
 
     public static void main(String[] args) {
-        String s = nameSwitch("remove-duplicates-from-sorted-array");
+        String s = nameSwitch("maximum-depth-of-binary-tree");
         System.out.println(s);
     }
 }
