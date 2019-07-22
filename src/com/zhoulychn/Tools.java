@@ -1,4 +1,4 @@
-package com.zhoulychn.common.utils;
+package com.zhoulychn;
 
 import com.zhoulychn.leetcode.TreeNode;
 
@@ -35,7 +35,7 @@ public class Tools {
     }
 
     public static void main(String[] args) {
-        String s = nameSwitch("delete-node-in-a-linked-list");
+        String s = nameSwitch("largest-rectangle-in-histogram");
         System.out.println(s);
     }
 }
