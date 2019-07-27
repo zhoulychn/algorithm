@@ -35,7 +35,7 @@ public class Tools {
     }
 
     public static void main(String[] args) {
-        String s = nameSwitch("largest-rectangle-in-histogram");
+        String s = nameSwitch("search-in-rotated-sorted-array");
         System.out.println(s);
     }
 }

@@ -21,10 +21,23 @@ package com.zhoulychn.leetcode;
 
  */
 
-// TODO: 2019/07/22
 public class IncreasingTripletSubsequence {
 
     public boolean increasingTriplet(int[] nums) {
+        int one = Integer.MAX_VALUE;
+        int two = Integer.MAX_VALUE;
+
+        // 记录两个最小的数
+        for (int n : nums) {
+            if (n <= one) {
+                one = n;
+            } else if (n <= two) {
+                two = n;
+            } else {
+                return true;
+            }
+        }
+
         return false;
     }
 }
