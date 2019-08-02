@@ -32,25 +32,17 @@ package com.zhoulychn.leetcode;
  */
 public class UniquePaths {
     public int uniquePaths(int m, int n) {
-        int[][] dp = new int[m][n];
 
-        // 只向一个方向走则只有一条路径
+        int[] dp = new int[n];
+
+        // 每次只需要前一层的数据
         for (int i = 0; i < m; i++) {
-            dp[i][0] = 1;
-        }
-
-        // 只向一个方向走则只有一条路径
-        for (int i = 0; i < n; i++) {
-            dp[0][i] = 1;
-        }
-
-        // f(m,n) = f(m-1,n)+f(m,n-1)
-        for (int i = 1; i < m; i++) {
-            for (int j = 1; j < n; j++) {
-                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+            for (int j = 0; j < n; j++) {
+                if (i == 0 || j == 0) dp[j] = 1;
+                else dp[j] = dp[j] + dp[j - 1];
             }
         }
-        return dp[m - 1][n - 1];
+        return dp[n - 1];
 
     }
 }

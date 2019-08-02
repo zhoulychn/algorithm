@@ -1,10 +1,5 @@
 package com.zhoulychn;
 
-import com.zhoulychn.leetcode.TreeNode;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Tools {
 
     public static TreeNode build(Integer[] arr, int index) {
@@ -35,7 +30,7 @@ public class Tools {
     }
 
     public static void main(String[] args) {
-        String s = nameSwitch("search-in-rotated-sorted-array");
+        String s = nameSwitch("kth-smallest-element-in-a-bst");
         System.out.println(s);
     }
 }

@@ -23,24 +23,44 @@ package com.zhoulychn.leetcode;
 
  */
 public class SearchInRotatedSortedArray {
+
     public int search(int[] nums, int target) {
-        return minSearch(nums, 0, nums.length - 1);
-    }
+        int len = nums.length;
+        if (len == 0) {
+            return -1;
+        }
 
-    public int minSearch(int[] nums, int lo, int hi) {
-        if (nums[lo - 1] > nums[lo]) return nums[lo];
-        int mid = lo + (hi - lo) / 2;
-        if (nums[mid] > nums[hi]) return minSearch(nums, mid + 1, hi);
-        else return minSearch(nums, lo, mid - 1);
-    }
+        int left = 0;
+        int right = len - 1;
+        // 注意：这里是等于
+        while (left < right) {
+            int mid = (left + right) >>> 1;
 
-//    public int recursion(int[] nums, int lo, int hi, int target) {
-//
-//    }
+            if (nums[mid] > nums[right]) {
+                // 前有序，包括中间数
+                // 6 7 8 9 1 2
+                if (nums[left] <= target && target <= nums[mid]) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            } else {
+                // 后有序，包括中间数
+                // 6 7 1 2 3 4 5 6
+                if (nums[mid] < target && target <= nums[right]) {
+                    left = mid + 1;
+                } else {
+                    right = mid;
+                }
+            }
+        }
+        if (nums[left] == target) {
+            return left;
+        }
+        return -1;
+    }
 
     public static void main(String[] args) {
-        new SearchInRotatedSortedArray().search(new int[]{3, 4, 5, 1, 2}, 1);
+        new SearchInRotatedSortedArray().search(new int[]{4, 5, 6, 7, 0, 1, 2}, 0);
     }
-
-
 }
