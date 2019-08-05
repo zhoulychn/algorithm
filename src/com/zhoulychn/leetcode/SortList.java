@@ -18,6 +18,7 @@ import com.zhoulychn.common.list.ListNode;
  */
 public class SortList {
 
+    // 归并排序
     public ListNode sortList(ListNode head) {
         if (head == null || head.next == null)
             return head;
@@ -44,5 +45,11 @@ public class SortList {
         }
         h.next = left != null ? left : right;
         return res.next;
+    }
+
+
+
+    public static void main(String[] args) {
+        ListNode listNode = new SortList().sortList(new ListNode(-1).append(5).append(3).append(4).append(0));
     }
 }

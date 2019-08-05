@@ -24,25 +24,54 @@ nums2 = [3, 4]
  */
 public class MedianOfTwoSortedArrays {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        return findMedianSortedArrays(nums1, nums2, 0, nums1.length - 1, 0, nums2.length - 1);
-    }
+        int[] nums;
+        int m = nums1.length;
+        int n = nums2.length;
+        nums = new int[m + n];
+        if (m == 0) {
+            if (n % 2 == 0) {
+                return (nums2[n / 2 - 1] + nums2[n / 2]) / 2.0;
+            } else {
 
-    public double findMedianSortedArrays(int[] nums1, int[] nums2, int lo1, int hi1, int lo2, int hi2) {
-        if (hi1 == lo1 && hi2 == lo2) return (nums1[lo1] + nums2[lo2]) / 2.0;
-        int m1 = (hi1 - lo1) / 2;
-        int m2 = (hi2 - lo2) / 2;
-        int v1 = hi1 - lo1 % 2 == 0 ? nums1[m1] : (nums1[m1] + nums1[m1 + 1]) / 2;
-
-        if (nums1[m1] > nums2[m2]) {
-            hi1 = m1;
-            if (hi2 - lo2 % 2 == 0) lo2 = m2;
-            else lo2 = m2 + 1;
-        } else {
-            hi2 = m2;
-            if (hi1 - lo1 % 2 == 0) lo1 = m1;
-            else lo1 = m1 + 1;
+                return nums2[n / 2];
+            }
         }
-        return findMedianSortedArrays(nums1, nums2, lo1, hi1, lo2, hi2);
+        if (n == 0) {
+            if (m % 2 == 0) {
+                return (nums1[m / 2 - 1] + nums1[m / 2]) / 2.0;
+            } else {
+                return nums1[m / 2];
+            }
+        }
+
+        int count = 0;
+        int i = 0, j = 0;
+        while (count != (m + n)) {
+            if (i == m) {
+                while (j != n) {
+                    nums[count++] = nums2[j++];
+                }
+                break;
+            }
+            if (j == n) {
+                while (i != m) {
+                    nums[count++] = nums1[i++];
+                }
+                break;
+            }
+
+            if (nums1[i] < nums2[j]) {
+                nums[count++] = nums1[i++];
+            } else {
+                nums[count++] = nums2[j++];
+            }
+        }
+
+        if (count % 2 == 0) {
+            return (nums[count / 2 - 1] + nums[count / 2]) / 2.0;
+        } else {
+            return nums[count / 2];
+        }
     }
 
     public static void main(String[] args) {
