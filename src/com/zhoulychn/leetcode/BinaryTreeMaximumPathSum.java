@@ -53,6 +53,6 @@ public class BinaryTreeMaximumPathSum {
     }
 
     public static void main(String[] args) {
-        new BinaryTreeMaximumPathSum().maxPathSum(Tools.build(new Integer[]{1, 2, 3}, 0));
+        new BinaryTreeMaximumPathSum().maxPathSum(Tools.init(new Integer[]{1, 2, 3}));
     }
 }

@@ -54,7 +54,7 @@ public class PathSumIII {
     }
 
     public static void main(String[] args) {
-        TreeNode tree = Tools.build(new Integer[]{1, null, 2, null, 3, null, 4, null, 5}, 0);
+        TreeNode tree = Tools.init(new Integer[]{1, null, 2, null, 3, null, 4, null, 5});
         int i = new PathSumIII().pathSum(tree, 3);
         System.out.println(i);
     }

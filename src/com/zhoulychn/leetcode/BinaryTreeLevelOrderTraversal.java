@@ -54,6 +54,6 @@ public class BinaryTreeLevelOrderTraversal {
     }
 
     public static void main(String[] args) {
-        new BinaryTreeLevelOrderTraversal().levelOrder(Tools.build(new Integer[]{3, 9, 20, null, null, 15, 7}, 0));
+        new BinaryTreeLevelOrderTraversal().levelOrder(Tools.init(new Integer[]{3, 9, 20, null, null, 15, 7}));
     }
 }

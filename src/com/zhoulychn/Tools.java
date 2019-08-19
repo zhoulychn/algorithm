@@ -4,7 +4,11 @@ import com.zhoulychn.common.tree.TreeNode;
 
 public class Tools {
 
-    public static TreeNode build(Integer[] arr, int index) {
+    public static TreeNode init(Integer[] arr) {
+        return build(arr, 0);
+    }
+
+    private static TreeNode build(Integer[] arr, int index) {
         TreeNode node = null;
         if (index < arr.length) {
             Integer value = arr[index];
@@ -32,8 +36,8 @@ public class Tools {
     }
 
     public static void main(String[] args) {
-        String s = nameSwitch("binary-tree-level-order-traversal");
-        String str = "[[1,2,3,4],[5,6,7,8],[9,10,11,12]]".replace("[", "{").replace("]", "}");
+        String s = nameSwitch("palindromic-substrings");
+        String str = "[[\"0\",\"0\",\"0\",\"1\"],[\"1\",\"1\",\"0\",\"1\"],[\"1\",\"1\",\"1\",\"1\"],[\"0\",\"1\",\"1\",\"1\"],[\"0\",\"1\",\"1\",\"1\"]]".replace("[", "{").replace("]", "}");
         System.out.println(s);
         System.out.println(str);
     }

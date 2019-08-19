@@ -70,7 +70,7 @@ public class LowestCommonAncestorOfABinaryTree {
 
     public static void main(String[] args) {
         new LowestCommonAncestorOfABinaryTree().lowestCommonAncestor(
-                Tools.build(new Integer[]{1, 2}, 0),
+                Tools.init(new Integer[]{1, 2}),
                 new TreeNode(5), new TreeNode(1));
     }
 }
