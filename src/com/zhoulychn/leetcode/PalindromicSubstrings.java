@@ -24,6 +24,28 @@ package com.zhoulychn.leetcode;
 public class PalindromicSubstrings {
 
     public int countSubstrings(String s) {
+        if (s.length() <= 1) return s.length();
 
+        int count = 0;
+
+        // i->j 是否为回文串，如果i和j之间的数小于2，只用判断是否i和j的字符是否相同，否则判断dp[i-1][j+1]是否构成回文串
+        boolean[][] dp = new boolean[s.length()][s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = 0; j <= i; j++) {
+
+                if (s.charAt(i) == s.charAt(j)) {
+                    if (i - j < 2) dp[i][j] = true;
+                    else if (dp[i - 1][j + 1]) dp[i][j] = true;
+                }
+
+                if (dp[i][j]) count++;
+            }
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+        int aaa = new PalindromicSubstrings().countSubstrings("aaa");
     }
 }

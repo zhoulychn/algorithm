@@ -55,6 +55,7 @@ public class LongestPalindromicSubstring {
 
         String result = s.substring(0, 1);
 
+        // i->j 是否为回文串
         boolean[][] dp = new boolean[s.length()][s.length()];
 
 
