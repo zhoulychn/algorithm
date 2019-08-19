@@ -17,21 +17,37 @@ package com.zhoulychn.leetcode;
 
  */
 
-// TODO: 2019/07/30 未完成
 public class MaximalSquare {
 
     public int maximalSquare(char[][] matrix) {
-
-        int[] dp = new int[matrix[0].length];
-
-        for (int i = 0; i < matrix[0].length; i++) {
-            dp[i] = matrix[0][i];
-        }
-        for (int i = 1; i < matrix.length; i++) {
+        if (matrix.length == 0) return 0;
+        int max = 0;
+        int[][] ops = new int[matrix.length][matrix[0].length];
+        for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] == '0') ops[i][j] = 0;
+                else {
+                    ops[i][j] = 1;
 
+                    // 左上角的边长>0，并且不是边界
+                    if (i - 1 >= 0 && j - 1 >= 0 && ops[i - 1][j - 1] > 0) {
+
+                        // 左上角的边长
+                        for (int k = 1; k <= ops[i - 1][j - 1]; k++) {
+
+                            // 上一步和左一部为1，边长+1
+                            if (matrix[i - k][j] == '1' && matrix[i][j - k] == '1') ops[i][j] += 1;
+                            else break;
+                        }
+                    }
+                    max = Math.max(max, ops[i][j]);
+                }
             }
         }
-        return 0;
+        return max * max;
+    }
+
+    public static void main(String[] args) {
+        int i = new MaximalSquare().maximalSquare(new char[][]{{'0', '0', '0', '1'}, {'1', '1', '0', '1'}, {'1', '1', '1', '1'}, {'0', '1', '1', '1'}, {'0', '1', '1', '1'}});
     }
 }
