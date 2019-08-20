@@ -36,7 +36,7 @@ public class Tools {
     }
 
     public static void main(String[] args) {
-        String s = nameSwitch("palindromic-substrings");
+        String s = nameSwitch("group-anagrams");
         String str = "[[\"0\",\"0\",\"0\",\"1\"],[\"1\",\"1\",\"0\",\"1\"],[\"1\",\"1\",\"1\",\"1\"],[\"0\",\"1\",\"1\",\"1\"],[\"0\",\"1\",\"1\",\"1\"]]".replace("[", "{").replace("]", "}");
         System.out.println(s);
         System.out.println(str);
