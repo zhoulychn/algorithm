@@ -27,14 +27,17 @@ public class HouseRobber {
     public int rob(int[] nums) {
         if (nums.length == 0) return 0;
         if (nums.length == 1) return nums[0];
-        int[] dp = new int[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            dp[i] = nums[i] + Math.max(i - 2 >= 0 ? dp[i - 2] : 0, i - 3 >= 0 ? dp[i - 3] : 0);
+        int[] ops = new int[nums.length];
+        ops[0] = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            int v = nums[i] + (i - 2 >= 0 ? ops[i - 2] : 0);
+            ops[i] = +Math.max(v, ops[i - 1]);
         }
-        return Math.max(dp[nums.length - 1], dp[nums.length - 2]);
+        return Math.max(ops[nums.length - 1], ops[nums.length - 2]);
     }
 
     public static void main(String[] args) {
-
+        int rob = new HouseRobber().rob(new int[]{1, 2, 3});
+        System.out.println(rob);
     }
 }
