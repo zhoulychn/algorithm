@@ -1,6 +1,7 @@
 package com.zhoulychn.leetcode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -28,6 +29,7 @@ public class Permutations {
         return res;
     }
 
+    // 每次并入一个数，在之前的数之间插入值，比如[1,2]之间插入3，得到[3,1,2][1,3,2][1,2,3]
     public void backtrack(List<List<Integer>> res, int[] nums, int i) {
         if (i >= nums.length) return;
 

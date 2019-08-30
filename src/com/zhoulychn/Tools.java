@@ -4,7 +4,7 @@ import com.zhoulychn.common.tree.TreeNode;
 
 public class Tools {
 
-    public static TreeNode init(Integer[] arr) {
+    public static TreeNode buildTree(Integer[] arr) {
         return build(arr, 0);
     }
 

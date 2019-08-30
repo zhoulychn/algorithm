@@ -50,6 +50,6 @@ public class SymmetricTree {
     }
 
     public static void main(String[] args) {
-        new SymmetricTree().isSymmetric(Tools.init(new Integer[]{1, 2, 2, 3, 4, 4, 3}));
+        new SymmetricTree().isSymmetric(Tools.buildTree(new Integer[]{1, 2, 2, 3, 4, 4, 3}));
     }
 }

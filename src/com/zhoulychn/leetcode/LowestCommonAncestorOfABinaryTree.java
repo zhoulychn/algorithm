@@ -1,7 +1,6 @@
 package com.zhoulychn.leetcode;
 
 import com.zhoulychn.Tools;
-import com.zhoulychn.common.list.ListNode;
 import com.zhoulychn.common.tree.TreeNode;
 
 import java.util.*;
@@ -70,7 +69,7 @@ public class LowestCommonAncestorOfABinaryTree {
 
     public static void main(String[] args) {
         new LowestCommonAncestorOfABinaryTree().lowestCommonAncestor(
-                Tools.init(new Integer[]{1, 2}),
+                Tools.buildTree(new Integer[]{1, 2}),
                 new TreeNode(5), new TreeNode(1));
     }
 }

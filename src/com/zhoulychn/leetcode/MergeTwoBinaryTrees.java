@@ -41,6 +41,6 @@ public class MergeTwoBinaryTrees {
     }
 
     public static void main(String[] args) {
-        new MergeTwoBinaryTrees().mergeTrees(Tools.init(new Integer[]{1, 3, 2, 5}), Tools.init(new Integer[]{2, 1, 3, null, 4, null, 7}));
+        new MergeTwoBinaryTrees().mergeTrees(Tools.buildTree(new Integer[]{1, 3, 2, 5}), Tools.buildTree(new Integer[]{2, 1, 3, null, 4, null, 7}));
     }
 }

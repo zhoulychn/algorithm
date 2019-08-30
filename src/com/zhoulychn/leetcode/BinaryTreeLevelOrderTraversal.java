@@ -1,13 +1,11 @@
 package com.zhoulychn.leetcode;
 
 import com.zhoulychn.Tools;
-import com.zhoulychn.common.stack.SqQueue;
 import com.zhoulychn.common.tree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 
 /*
 
@@ -54,6 +52,6 @@ public class BinaryTreeLevelOrderTraversal {
     }
 
     public static void main(String[] args) {
-        new BinaryTreeLevelOrderTraversal().levelOrder(Tools.init(new Integer[]{3, 9, 20, null, null, 15, 7}));
+        new BinaryTreeLevelOrderTraversal().levelOrder(Tools.buildTree(new Integer[]{3, 9, 20, null, null, 15, 7}));
     }
 }

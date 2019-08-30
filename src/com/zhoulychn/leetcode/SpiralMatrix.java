@@ -50,14 +50,20 @@ public class SpiralMatrix {
             }
             c1++;
         }
+
+        // 左右边界，上下边界都相同，就剩一个元素
         if (r1 == r2 && c1 == c2) {
             res.add(matrix[r1][c1]);
         }
+
+        // 上下边界不同，从上到下
         if (c1 == c2 && r1 < r2) {
             for (int i = r1; i <= r2; i++) {
                 res.add(matrix[i][c1]);
             }
         }
+
+        // 左右边界不同，从左到右
         if (r1 == r2 && c1 < c2) {
             for (int i = c1; i <= c2; i++) {
                 res.add(matrix[r1][i]);

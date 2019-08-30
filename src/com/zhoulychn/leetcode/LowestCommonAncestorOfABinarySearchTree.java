@@ -60,7 +60,7 @@ public class LowestCommonAncestorOfABinarySearchTree {
 
     public static void main(String[] args) {
         TreeNode treeNode = new LowestCommonAncestorOfABinarySearchTree()
-                .lowestCommonAncestor(Tools.init(new Integer[]{5, 3, 6, 1, 4, null, null, null, 2}), new TreeNode(4), new TreeNode(2));
+                .lowestCommonAncestor(Tools.buildTree(new Integer[]{5, 3, 6, 1, 4, null, null, null, 2}), new TreeNode(4), new TreeNode(2));
         System.out.println(treeNode.val);
     }
 }
