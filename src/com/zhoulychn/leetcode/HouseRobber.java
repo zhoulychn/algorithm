@@ -14,6 +14,7 @@ import java.util.LinkedList;
 输出: 4
 解释: 偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。
      偷窃到的最高金额 = 1 + 3 = 4 。
+
 示例 2:
 
 输入: [2,7,9,3,1]
@@ -27,10 +28,16 @@ public class HouseRobber {
     public int rob(int[] nums) {
         if (nums.length == 0) return 0;
         if (nums.length == 1) return nums[0];
+
+
         int[] ops = new int[nums.length];
         ops[0] = nums[0];
         for (int i = 1; i < nums.length; i++) {
+
+            // v为前夜（如果有前夜）和今夜的抢
             int v = nums[i] + (i - 2 >= 0 ? ops[i - 2] : 0);
+
+            // ops[i-1]为昨夜的钱，判断哪个值更大
             ops[i] = +Math.max(v, ops[i - 1]);
         }
         return Math.max(ops[nums.length - 1], ops[nums.length - 2]);

@@ -17,10 +17,21 @@ package com.zhoulychn.leetcode;
 
  */
 
-// TODO: 2019/08/23 未完成
 public class PerfectSquares {
     public int numSquares(int n) {
-        double v = Math.sqrt(n);
-        return 0;
+
+        // 默认初始化值都为0
+        int[] ops = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+
+            // 最坏的情况就是每次+1
+            ops[i] = i;
+
+            // ops[i - j * j] + 1判断这个选择是否更好，只要i-j*j大于0就行了
+            for (int j = 1; i - j * j >= 0; j++) {
+                ops[i] = Math.min(ops[i], ops[i - j * j] + 1);
+            }
+        }
+        return ops[n];
     }
 }

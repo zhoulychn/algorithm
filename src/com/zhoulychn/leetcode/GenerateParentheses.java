@@ -21,20 +21,24 @@ import java.util.*;
 public class GenerateParentheses {
 
     public List<String> generateParenthesis(int n) {
-        List<String> res = new LinkedList<>();
+        List<String> res = new ArrayList<>();
         HashMap<String, Integer> num = new HashMap<>();
         HashMap<String, Integer> surplus = new HashMap<>();
         res.add("(");
         num.put("(", 1);
         surplus.put("(", 1);
         for (int i = 1; i < 2 * n; i++) {
-            List<String> temp = new LinkedList<>();
+            List<String> temp = new ArrayList<>();
             for (String str : res) {
+
+                // 如果左括号的数量小于n，可以再加左括号
                 if (num.get(str) < n) {
                     temp.add(str + "(");
                     num.put(str + "(", num.get(str) + 1);
                     surplus.put(str + "(", surplus.get(str) + 1);
                 }
+
+                // 如果抵消后的括号大于0，可以加右括号
                 if (surplus.get(str) > 0) {
                     temp.add(str + ")");
                     num.put(str + ")", num.get(str));

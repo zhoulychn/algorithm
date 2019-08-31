@@ -18,7 +18,7 @@ public class MaximumSubarray {
         if (nums.length < 2) return nums.length == 1 ? nums[0] : 0;
 
         // result是结果，sum是缓存局部的和
-        int result = nums[0], sum = nums[0] > 0 ? 0 : nums[0];
+        int result = nums[0], sum = Math.min(nums[0], 0);
 
         for (int num : nums) {
 

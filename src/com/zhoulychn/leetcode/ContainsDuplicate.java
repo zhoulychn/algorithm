@@ -28,6 +28,8 @@ import java.util.Set;
  */
 public class ContainsDuplicate {
     public boolean containsDuplicate(int[] nums) {
+
+        // 利用set的性质
         Set<Integer> set = new HashSet<>(nums.length);
         for (int num : nums) {
             if (set.contains(num)) {

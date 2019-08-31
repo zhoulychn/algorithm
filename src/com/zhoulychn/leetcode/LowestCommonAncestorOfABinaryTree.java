@@ -3,8 +3,6 @@ package com.zhoulychn.leetcode;
 import com.zhoulychn.Tools;
 import com.zhoulychn.common.tree.TreeNode;
 
-import java.util.*;
-
 /*
 
 给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。
@@ -31,40 +29,38 @@ p、q 为不同节点且均存在于给定的二叉树中。
 
  */
 public class LowestCommonAncestorOfABinaryTree {
+
+    private TreeNode ans = null;
+
+    // 判断currentNode这颗树内是否含有左右任何一个节点
+    private boolean search(TreeNode node, TreeNode p, TreeNode q) {
+
+        if (node == null) {
+            return false;
+        }
+
+        // 左子树内搜索
+        int left = this.search(node.left, p, q) ? 1 : 0;
+
+        // 左子树内搜索
+        int right = this.search(node.right, p, q) ? 1 : 0;
+
+        // 自己是否等于p或者q
+        int mid = (node == p || node == q) ? 1 : 0;
+
+        // 如果三项加起来大于等于2，说明在本树内找到了两个节点，最近公共祖先就是自己
+
+        // 再往上走，本树为左子树，或者右子树，上面的树也不可能大于等于2了
+        if (mid + left + right >= 2) {
+            this.ans = node;
+        }
+
+        return (mid + left + right > 0);
+    }
+
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        Map<Integer, TreeNode> map = new HashMap<>();
-        ArrayDeque<TreeNode> queue = new ArrayDeque<>();
-        queue.addLast(root);
-        while (queue.size() != 0 && (map.get(p.val) == null || map.get(q.val) == null)) {
-            TreeNode node = queue.poll();
-            if (node.left != null) {
-                map.put(node.left.val, node);
-                queue.addLast(node.left);
-            }
-            if (node.right != null) {
-                map.put(node.right.val, node);
-                queue.addLast(node.right);
-            }
-        }
-        LinkedList<TreeNode> s1 = new LinkedList<>();
-        LinkedList<TreeNode> s2 = new LinkedList<>();
-        s1.addFirst(p);
-        s2.addFirst(q);
-        while (map.get(p.val) != null) {
-            TreeNode node = map.get(p.val);
-            s1.addFirst(node);
-            p = node;
-        }
-        while (map.get(q.val) != null) {
-            TreeNode node = map.get(q.val);
-            s2.addFirst(node);
-            q = node;
-        }
-        int i;
-        for (i = 0; i < s1.size() && i < s2.size(); i++) {
-            if (s1.get(i).val != s2.get(i).val) return s1.get(i - 1);
-        }
-        return s1.get(i - 1);
+        this.search(root, p, q);
+        return this.ans;
     }
 
     public static void main(String[] args) {

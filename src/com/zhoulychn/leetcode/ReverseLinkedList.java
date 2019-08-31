@@ -16,14 +16,19 @@ import com.zhoulychn.common.list.ListNode;
  */
 public class ReverseLinkedList {
     public ListNode reverseList(ListNode head) {
-        if (head == null) return head;
-        if (head.next == null) return head;
-        ListNode p = reverseList(head.next);
-        ListNode q = p;
-        while (q.next != null) q = q.next;
-        q.next = head;
+
+        if (head == null || head.next == null) return head;
+
+        ListNode node = reverseList(head.next);
+
+        ListNode p = node;
+
         head.next = null;
-        return p;
+        while (p.next != null) {
+            p = p.next;
+        }
+        p.next = head;
+        return node;
     }
 
     public static void main(String[] args) {

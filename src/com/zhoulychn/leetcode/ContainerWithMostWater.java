@@ -21,10 +21,15 @@ public class ContainerWithMostWater {
 
         // 双指针移动，因为面积取决于高度的短板，所以每次移动短板的指针，过程中记录最大值
         for (int i = 0, j = height.length - 1; i < j; ) {
+
+            // j更小，高度取j的高度
             if (height[i] >= height[j]) {
                 res = Math.max(res, height[j] * (j - i));
                 j--;
-            } else {
+            }
+
+            // i更小，高度取i的高度
+            else {
                 res = Math.max(res, height[i] * (j - i));
                 i++;
             }

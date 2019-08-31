@@ -33,7 +33,7 @@ public class BinaryTreeLevelOrderTraversal {
         if (root == null) return new ArrayList<>();
         ArrayDeque<TreeNode> queue = new ArrayDeque<>();
         queue.add(root);
-        TreeNode p = root;
+        TreeNode last = root;
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> temp = new ArrayList<>();
         res.add(temp);
@@ -42,8 +42,12 @@ public class BinaryTreeLevelOrderTraversal {
             temp.add(node.val);
             if (node.left != null) queue.addLast(node.left);
             if (node.right != null) queue.addLast(node.right);
-            if (node == p && queue.size() != 0) {
-                p = queue.peekLast();
+
+            // 当前出队节点是上一层的最后一个，说明此时下一层的所有节点已经全部入队，队尾为下一层最后一个节点
+
+            // 一层元素全部添加，temp重新创建
+            if (node == last && queue.size() != 0) {
+                last = queue.peekLast();
                 temp = new ArrayList<>();
                 res.add(temp);
             }

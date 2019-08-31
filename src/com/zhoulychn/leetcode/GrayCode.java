@@ -43,12 +43,24 @@ public class GrayCode {
     // 设G(n)集合的倒序（镜像）为R(n)，给R(n)每个元素二进制形式前面添加1；
     // G(n+1) = G(n) + R(n)拼接两个集合即可得到下一阶格雷码。
     public List<Integer> grayCode(int n) {
-        List<Integer> res = new ArrayList<Integer>() {{ add(0); }};
+        List<Integer> res = new ArrayList<Integer>() {{
+            add(0);
+        }};
+
+        // 最高位次数
         for (int i = 0; i < n; i++) {
+
+            // 左移次数，表达最高位是第几位
             int head = 1 << i;
+
+            // 每次在已有的二进制数最高位加1
             for (int j = res.size() - 1; j >= 0; j--)
                 res.add(head + res.get(j));
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        new GrayCode().grayCode(2);
     }
 }

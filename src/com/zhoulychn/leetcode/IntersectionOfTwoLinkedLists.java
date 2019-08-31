@@ -15,10 +15,29 @@ package com.zhoulychn.leetcode;
 
 import com.zhoulychn.common.list.ListNode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class IntersectionOfTwoLinkedLists {
 
-    //先找到链表长度，然后更长的先遍历过多的那部分长度，再一起遍历就能找到了
+    // 遍历第一个链表，按照hashcode-node放入map，遍历下一个链表，第一个获取到的节点就是相遇的节点
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        Map<Integer, ListNode> map = new HashMap<>(10000);
+        while (headA != null) {
+            map.put(headA.hashCode(), headA);
+            headA = headA.next;
+        }
+
+        while (headB != null) {
+            if (map.get(headB.hashCode()) != null) return map.get(headB.hashCode());
+            headB = headB.next;
+
+        }
+        return null;
+    }
+
+    //先找到链表长度，然后更长的先遍历过多的那部分长度，再一起遍历就能找到了
+    public ListNode backup(ListNode headA, ListNode headB) {
         ListNode p = headA, q = headB;
         int lenA = 0, lenB = 0;
         while (p != null) {

@@ -48,10 +48,16 @@ public class LowestCommonAncestorOfABinarySearchTree {
             list.add(node);
         }
         node = root;
+
+        // 对比i在list中的索引，list[0] = root
         int i = 0;
         while (node.val != q.val) {
             if (q.val < node.val) node = node.left;
             else node = node.right;
+
+            // 如果第二个节点的索引等于list最后一个索引，这个索引的节点就是最近公共节点
+
+            // 当node 已经重新指向了，i才++，所有对比node和i+1位置的值
             if (i >= list.size() - 1 || node != list.get(i + 1)) return list.get(i);
             i++;
         }

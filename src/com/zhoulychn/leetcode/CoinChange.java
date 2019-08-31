@@ -31,12 +31,18 @@ public class CoinChange {
             int min = Integer.MAX_VALUE;
 
             for (int coin : coins) {
+
+                // 价值等于当前硬币值，只用一个就行
                 if (i - coin == 0) {
                     min = 1;
                     break;
                 }
+
+                // 价值大于当前硬币值，ops[i - coin]存在选择，更新最优解
                 if (i - coin > 0 && ops[i - coin] != -1) min = Math.min(min, ops[i - coin] + 1);
             }
+
+            // 没有更新过最优解说明无解
             ops[i] = min == Integer.MAX_VALUE ? -1 : min;
         }
         return ops[amount];

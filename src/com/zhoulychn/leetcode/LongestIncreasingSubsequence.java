@@ -17,11 +17,36 @@ package com.zhoulychn.leetcode;
 
  */
 
-// TODO: 2019/08/22 未完成
 public class LongestIncreasingSubsequence {
 
+
+    // 动态规划，ops[i]保存包含nums[i]的最大长度
     public int lengthOfLIS(int[] nums) {
+
+        if (nums.length < 2) return nums.length;
         int[] ops = new int[nums.length];
-        return 1;
+        ops[0] = 1;
+        int max = 1;
+
+        // 循环求每个位置的最大长度
+        for (int i = 1; i < nums.length; i++) {
+
+            // 初始化为1
+            ops[i] = 1;
+
+            // 比较之前的最大长度，如果比之前值的更大，长度为该值的长度+1，更新最大值
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) ops[i] = Math.max(ops[i], ops[j] + 1);
+            }
+
+            // 记录结果
+            max = Math.max(max, ops[i]);
+        }
+        return max;
     }
+
+    public static void main(String[] args) {
+        int i = new LongestIncreasingSubsequence().lengthOfLIS(new int[]{1, 3, 6, 7, 9, 4, 10, 5, 6});
+    }
+
 }

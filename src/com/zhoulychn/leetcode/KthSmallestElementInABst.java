@@ -42,10 +42,15 @@ public class KthSmallestElementInABst {
         Stack<TreeNode> stack = new Stack<>();
         TreeNode p = root;
         while (p != null || stack.size() != 0) {
+
+            // 左边全部入栈
             if (p != null) {
                 stack.push(p);
                 p = p.left;
-            } else {
+            }
+
+            // 出栈，左中先，然后指向右边
+            else {
                 p = stack.pop();
                 if (--k == 0) return p.val;
                 p = p.right;

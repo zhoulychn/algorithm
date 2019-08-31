@@ -29,15 +29,16 @@ public class IncreasingTripletSubsequence {
 
         // 记录两个最小的数
         for (int n : nums) {
-            if (n <= one) {
-                one = n;
-            } else if (n <= two) {
-                two = n;
-            } else {
-                return true;
-            }
-        }
 
+            // 如果n小于最小的，把n设为最小值
+            if (n <= one) one = n;
+
+            // n大于最小，小于次小，n设为次小
+            else if (n <= two) two = n;
+
+            // n大于前面两个数，返回true
+            else return true;
+        }
         return false;
     }
 }

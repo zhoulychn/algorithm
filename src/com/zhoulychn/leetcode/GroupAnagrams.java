@@ -34,10 +34,13 @@ public class GroupAnagrams {
             Arrays.sort(array);
             String key = new String(array);
 
+            // 当前串不存在相同构成，重现构建一个list，放入map和res
             if (map.get(key) == null) {
                 map.put(key, new LinkedList<>());
                 res.add(map.get(key));
             }
+
+            // list添加当前串
             map.get(key).add(str);
         }
         return res;

@@ -33,7 +33,11 @@ public class ImplementStrstr {
         int i = 0, j = 0;
         while (i < haystack.length() && j < needle.length()) {
             if (haystack.charAt(i) == needle.charAt(j)) Math.max(++i, ++j);
+
+            // 不相等且next数组为-1，则下一个支付重新匹配
             else if (next[j] == -1) i++;
+
+            // next数组有值，j跳到下一个比对位置
             else j = next[j];
         }
         return j == needle.length() ? i - j : -1;
@@ -44,19 +48,15 @@ public class ImplementStrstr {
         next[0] = -1;
         for (int i = 2, cn = 0; i < next.length; ) {
 
-            // cn和末尾对比，相等的情况下，cn代表之前匹配过的长度，这时候next就是0-cn的长度。xxxcn=xxx[i-1]  [i]
-            if (str.charAt(cn) == str.charAt(i - 1)) {
-                next[i++] = ++cn;
-            }
+            // cn和末尾对比，相等的情况下，cn代表之前匹配过的长度，这时候next就是0-cn的长度。xxx cn=xxx [i-1]
+            if (str.charAt(cn) == str.charAt(i - 1)) next[i++] = ++cn;
+
             // 继续向前
-            else if (cn > 0) {
-                cn = next[cn];
-            }
+            else if (cn > 0) cn = next[cn];
 
             // 没有匹配的
-            else {
-                next[i++] = 0;
-            }
+            else next[i++] = 0;
+
         }
         return next;
     }

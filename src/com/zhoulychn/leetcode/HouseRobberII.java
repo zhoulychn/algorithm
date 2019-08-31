@@ -23,23 +23,34 @@ package com.zhoulychn.leetcode;
 public class HouseRobberII {
 
     public int rob(int[] nums) {
-        if (nums.length == 0) {
-            return 0;
-        }
-        if (nums.length == 1) {
-            return nums[0];
-        }
-        if (nums.length == 2) {
-            return Math.max(nums[0], nums[1]);
-        }
+
+        if (nums.length == 0) return 0;
+        if (nums.length == 1) return nums[0];
+        if (nums.length == 2) return Math.max(nums[0], nums[1]);
+
+
         int last = nums.length - 1;
+
+        // ops1为[0,n-1]的最好选择
         int[] ops1 = new int[nums.length];
+
+        // ops1为[1,n]的最好选择
         int[] ops2 = new int[nums.length];
+
+        // 初始化ops1的0
         ops1[0] = nums[0];
+
+        // 遍历[1,n]
         for (int i = 1; i < last; i++) {
+
+            // ops1的起始夜为[0]夜，所以i-2大于等于0
             ops1[i] = Math.max((i - 2 < 0 ? 0 : ops1[i - 2]) + nums[i], ops1[i - 1]);
+
+            // ops1的起始夜为[0]夜，所以i-2大于等于1
             ops2[i] = Math.max((i - 2 < 1 ? 0 : ops2[i - 2]) + nums[i], ops2[i - 1]);
         }
+
+        // 初始化ops2的n
         ops2[last] = +Math.max(last - 2 < 1 ? 0 : ops2[last - 2] + nums[last], ops2[last - 1]);
         return Math.max(ops1[last - 1], ops2[last]);
     }

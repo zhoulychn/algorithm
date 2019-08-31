@@ -33,14 +33,17 @@ public class ClimbingStairs {
 
     // 动态规划，用数组保存前面的结果
     private int climbStairs2(int n) {
-        if (n <= 1) return 1;   // 边界处理
-        int[] arr = new int[n + 1];
-        arr[1] = 1;
-        arr[2] = 2;
+
+        // 边界处理
+        if (n <= 2) return n;
+
+        int v1 = 1, v2 = 2;
         for (int i = 3; i <= n; i++) {
-            arr[i] = arr[i - 1] + arr[i - 2];
+            int sum = v1 + v2;
+            v1 = v2;
+            v2 = sum;
         }
-        return arr[n];
+        return v2;
     }
 
     public static void main(String[] args) {

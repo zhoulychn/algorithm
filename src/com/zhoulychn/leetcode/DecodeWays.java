@@ -23,17 +23,24 @@ package com.zhoulychn.leetcode;
 
  */
 
-// TODO: 2019/07/29 未完成
 public class DecodeWays {
     public int numDecodings(String s) {
-        if (s.charAt(0) == '0') return 0;
-        int count = 1;
-        for (int i = 1; i < s.length(); i++) {
-            if (s.charAt(i) == '0' && (s.charAt(i - 1) == '0' || s.charAt(i - 1) - '0' > 2)) return 0;
-            if (s.charAt(i - 1) != '0' && s.charAt(i) != '0' && s.charAt(i) - '0' <= 6) count++;
+        char[] chars = s.toCharArray();
+        if (chars[0] == '0') return 0;
 
+        //dp[-1] = dp[0] = 1
+        int v1 = 1, v2 = 1;
+
+
+        for (int i = 1; i < chars.length; i++) {
+            int tmp = v2;
+            if (chars[i] == '0')
+                if (chars[i - 1] == '1' || chars[i - 1] == '2') v2 = v1;
+                else return 0;
+            else if (chars[i - 1] == '1' || (chars[i - 1] == '2' && chars[i] >= '1' && chars[i] <= '6')) v2 = v2 + v1;
+            v1 = tmp;
         }
-        return count;
+        return v2;
     }
 
     public static void main(String[] args) {

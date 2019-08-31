@@ -21,35 +21,29 @@ package com.zhoulychn.leetcode;
 public class FindFirstAndLastPositionOfElementInSortedArray {
 
     public int[] searchRange(int[] nums, int target) {
-        if (nums.length == 0) {
-            return new int[]{-1, -1};
-        }
+        if (nums.length == 0) return new int[]{-1, -1};
+
         int lo = 0, hi = nums.length - 1;
         int mid = 0;
 
         // 判断加上等于
         while (lo <= hi) {
             mid = (lo + hi) >>> 1;
-            if (nums[mid] > target) {
-                hi = mid - 1;
-            } else if (nums[mid] < target) {
-                lo = mid + 1;
-            } else break;
+            if (nums[mid] > target) hi = mid - 1;
+            else if (nums[mid] < target) lo = mid + 1;
+            else break;
         }
 
         // 判断最后的mid处是否为目标值
-        if (nums[mid] != target) {
-            return new int[]{-1, -1};
-        }
+        if (nums[mid] != target) return new int[]{-1, -1};
 
         // 寻找开始和结束
         int start = mid, end = mid;
-        while (start >= 0 && nums[start] == target) {
-            start--;
-        }
-        while (end < nums.length && nums[end] == target) {
-            end++;
-        }
+
+        while (start >= 0 && nums[start] == target) start--;
+
+        while (end < nums.length && nums[end] == target) end++;
+
         return new int[]{++start, --end};
     }
 

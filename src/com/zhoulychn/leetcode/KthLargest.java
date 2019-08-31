@@ -19,18 +19,43 @@ package com.zhoulychn.leetcode;
     你可以假设 nums 的长度≥ k-1 且k ≥ 1。
 */
 
+import java.util.*;
+
 // TODO: 2019/07/09 未完成
 public class KthLargest {
 
-    public KthLargest(int k, int[] nums) {
+    private PriorityQueue<Integer> heap;
 
+    private int k;
+
+    public KthLargest(int k, int[] nums) {
+        this.k = k;
+        this.heap = new PriorityQueue<>(k);
+        for (int num : nums) add(num);
     }
 
     public int add(int val) {
-        return val;
+        if (heap.size() < k) {
+            heap.offer(val);
+        } else if (heap.peek() < val) {
+            heap.poll();
+            heap.offer(val);
+        }
+        return heap.peek();
+
     }
 
 
+    public static void main(String[] args) {
+        int k = 3;
+        int[] arr = new int[]{4, 5, 8, 2};
+        KthLargest kthLargest = new KthLargest(3, arr);
+        kthLargest.add(3);
+        kthLargest.add(5);
+        kthLargest.add(10);
+        kthLargest.add(9);
+        kthLargest.add(4);
+    }
     /**
      * Your KthLargest object will be instantiated and called as such:
      * KthLargest obj = new KthLargest(k, nums);

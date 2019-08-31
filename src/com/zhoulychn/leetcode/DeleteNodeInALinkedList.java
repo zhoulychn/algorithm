@@ -18,6 +18,7 @@ import com.zhoulychn.common.list.ListNode;
  */
 public class DeleteNodeInALinkedList {
 
+    // 没有前驱节点，直接改值
     public void deleteNode(ListNode node) {
         node.val = node.next.val;
         node.next = node.next.next;
