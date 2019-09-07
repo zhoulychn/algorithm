@@ -18,6 +18,11 @@ public class ProductOfArrayExceptSelf {
 
 
     // 第一遍，res[i]为i左边数的乘积，第二次遍历成上右边数就行
+
+
+    // [1,v1,v1*v2,v1*v2*v3]
+
+    // [v1*v2*v3,v2*v3,v3,1]
     public int[] productExceptSelf(int[] nums) {
         int[] res = new int[nums.length];
         int k = 1;

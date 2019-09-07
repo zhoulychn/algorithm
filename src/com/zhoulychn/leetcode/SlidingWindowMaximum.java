@@ -36,10 +36,7 @@ public class SlidingWindowMaximum {
     //每次滑动，一插入，一删除，插入被滑入的数，清除之前所有比这个数小的数，删除被滑过的数
     public int[] maxSlidingWindow(int[] nums, int k) {
 
-        // 长度为0
         if (nums.length == 0) return new int[]{};
-
-        // 长度为1
         if (nums.length == 1) return new int[]{nums[0]};
 
         // 最大值数组

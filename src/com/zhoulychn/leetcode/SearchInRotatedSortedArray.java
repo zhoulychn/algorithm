@@ -32,11 +32,13 @@ public class SearchInRotatedSortedArray {
 
         int left = 0;
         int right = len - 1;
-        // 注意：这里是等于
+
         while (left < right) {
             int mid = (left + right) >>> 1;
 
+            // mid在前半段
             if (nums[mid] > nums[right]) {
+
                 // 前有序，包括中间数
                 // 6 7 8 9 1 2
                 if (nums[left] <= target && target <= nums[mid]) {
@@ -44,7 +46,10 @@ public class SearchInRotatedSortedArray {
                 } else {
                     left = mid + 1;
                 }
-            } else {
+            }
+
+            // mid在后半段
+            else {
                 // 后有序，包括中间数
                 // 6 7 1 2 3 4 5 6
                 if (nums[mid] < target && target <= nums[right]) {

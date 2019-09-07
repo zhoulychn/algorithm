@@ -26,7 +26,11 @@ n 是 32 位有符号整数，其数值范围是 [−231, 231 − 1] 。
 public class PowxNByLeetcode {
     public double myPow(double x, int n) {
         if (n <= 2) return Math.pow(x, n);
+
+        // n为偶数则拆分，x^4 = (x^2 * x^2)
         if (n % 2 == 0) return Math.pow(myPow(x, n / 2), 2);
+
+        // n为奇数则拆分，x^5 = (x^1 * x^4)
         else return x * myPow(x, n - 1);
     }
 }

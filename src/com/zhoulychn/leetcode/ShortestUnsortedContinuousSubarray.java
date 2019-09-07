@@ -33,15 +33,21 @@ public class ShortestUnsortedContinuousSubarray {
 
         for (int i = 0, j = nums.length - 1; (!l || !r) && i < nums.length; i++, j--) {
             if (l && r) break;
+
+            // 第一个左边不相等的
             if (!l && arr[i] != nums[i]) {
                 lo = i;
                 l = true;
             }
+
+            // 第一个右边不相等的
             if (!r && arr[j] != nums[j]) {
                 hi = j;
                 r = true;
             }
         }
+
+        // l为false全部相同，不需要对子数组排序
         return l ? hi - lo + 1 : 0;
     }
 

@@ -45,10 +45,18 @@ public class RotateList {
                 break;
             }
         }
+
+
         if (k % list.size() == 0) return head;
         tail.next = head;
+
+        // 净移动次数
         k = k % list.size();
+
+        // 最后的索引 - k为最后一个节点
         list.get(list.size() - k - 1).next = null;
+
+        // 最后节点的下一个为头节点
         return list.get(list.size() - k);
     }
 

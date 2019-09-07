@@ -42,6 +42,7 @@ for (int i = 0; i < len; i++) {
 }
 
  */
+
 public class RemoveElement {
     public int removeElement(int[] nums, int val) {
         int dup = 0;
