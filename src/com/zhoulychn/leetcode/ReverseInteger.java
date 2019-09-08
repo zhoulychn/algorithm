@@ -35,16 +35,14 @@ public class ReverseInteger {
         当出现 ans == MIN_VALUE / 10 且 pop < -8 时，则一定溢出，8是-2^31的个位数
      */
     public int reverse(int x) {
-        int ans = 0;
+        int sum = 0;
         while (x != 0) {
             int pop = x % 10;
-            if (ans > Integer.MAX_VALUE / 10 || (ans == Integer.MAX_VALUE / 10 && pop > 7))
-                return 0;
-            if (ans < Integer.MIN_VALUE / 10 || (ans == Integer.MIN_VALUE / 10 && pop < -8))
-                return 0;
-            ans = ans * 10 + pop;
+            if (sum > Integer.MAX_VALUE / 10 || (sum == Integer.MAX_VALUE / 10 && pop > 7)) return 0;
+            if (sum < Integer.MIN_VALUE / 10 || (sum == Integer.MIN_VALUE / 10 && pop < -8)) return 0;
+            sum = sum * 10 + pop;
             x /= 10;
         }
-        return ans;
+        return sum;
     }
 }

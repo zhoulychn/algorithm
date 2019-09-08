@@ -39,6 +39,7 @@ public class LowestCommonAncestorOfABinarySearchTree {
 
     // 找到根结点到两个结点之间的路径，最后一个不相同的结点为最近公共祖先
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+
         List<TreeNode> list = new ArrayList<>();
         TreeNode node = root;
         list.add(node);

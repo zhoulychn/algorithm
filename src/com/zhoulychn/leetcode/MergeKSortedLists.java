@@ -1,11 +1,15 @@
 package com.zhoulychn.leetcode;
 
+import com.sun.istack.internal.NotNull;
 import com.zhoulychn.common.list.ListNode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /*
 
@@ -42,7 +46,36 @@ public class MergeKSortedLists {
         return head.next;
     }
 
+    public ListNode mergeKListsByQueue(ListNode[] lists) {
+        PriorityQueue<ListNode> queue = new PriorityQueue<>(Comparator.comparingInt(node -> node.val));
+        ListNode head = new ListNode(0);
+        ListNode p = head;
+
+        // 添加所有头节点
+        queue.addAll(Stream.of(lists).filter(Objects::nonNull).collect(Collectors.toList()));
+        while (!queue.isEmpty()) {
+            ListNode node = queue.poll();
+            p.next = node;
+            p = p.next;
+            if (node.next != null) queue.add(node.next);
+        }
+        return head.next;
+    }
+
     public static void main(String[] args) {
+
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        Future<?> future = executorService.submit(() -> {
+            System.out.println(1);
+        });
+
+        try {
+            Object o = future.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
         new MergeKSortedLists().mergeKLists(new ListNode[]
                 {new ListNode(1).append(4).append(5), new ListNode(1).append(3).append(4), new ListNode(2).append(6)});
     }

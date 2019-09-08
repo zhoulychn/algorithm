@@ -19,9 +19,9 @@ package com.zhoulychn.leetcode;
     你可以假设 nums 的长度≥ k-1 且k ≥ 1。
 */
 
-import java.util.*;
 
-// TODO: 2019/07/09 未完成
+import java.util.PriorityQueue;
+
 public class KthLargest {
 
     private PriorityQueue<Integer> heap;
