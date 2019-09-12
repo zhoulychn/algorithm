@@ -4,7 +4,7 @@ import com.zhoulychn.common.tree.TreeNode;
 
 import java.util.Stack;
 
-public class Main1 {
+public class   Main1 {
 
     private static TreeNode build(String str) {
         if ("".equals(str)) return null;
